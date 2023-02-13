@@ -115,7 +115,8 @@ import {
       height:"30%",
       // backgroundColor:"orange",
 
-      resizeMode:"contain" },
+      resizeMode:"contain"
+    },
     textBox:{
       width:"80%",
       height:"8%",
