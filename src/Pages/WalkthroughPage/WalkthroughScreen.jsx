@@ -6,6 +6,7 @@ import SubTitle from '../../Components/SubTitle';
 import { useState } from 'react';
 import MetaValues from "./WalkMetaValues.json"
 import {Slider} from '@miblanchard/react-native-slider';
+import TitleButton from '../../Components/TitleButton';
 function Walkthrough({params}) {
     
     const [WalkIterator, setWalkIterator] = useState(0)
@@ -55,14 +56,59 @@ function Walkthrough({params}) {
 
         </View>
         <Image />
-        <TextTitle values={WalkMetaValues[WalkIterator].Title} height={60} />
-        <SubTitle values={WalkMetaValues[WalkIterator].SubTitle} height={95}/>
-        
+        <TextTitle 
+        paddingTop={24} paddingBottom={4}
+        width={"90%"}
+        values={WalkMetaValues[WalkIterator].Title} height={88} />
+        <SubTitle 
+        paddingTop={24} paddingBottom={4}
+        width={"90%"}
+        values={WalkMetaValues[WalkIterator].SubTitle} height={95}/>
         <SliderSteps bullets = {MetaValues.length} active={WalkIterator}/>
+        
+        <TitleButton
+        handle= {()  => Siguiente(MetaValues.length)}
+        value={"Siguiente"}
+        style={{
+          justifyContent: "center",
+          padding: 16,
+          backgroundColor:"black",
+          color:"white",
+          width:"80%",
+          height:56,
+          borderRadius: 15,
+
+        }} 
+        textStyle={{
+            textAlign:"center", 
+            color:"white", 
+            fontSize:16
+            }}/>
+
+
+        <TitleButton
+        handle= {()  => Anterior()}
+        value={"Saltar"}
+        style={{
+          justifyContent: "center",
+          padding: 16,
+          backgroundColor:"white",
+          width:"80%",
+          borderRadius: 15,
+        }}
+        
+        textStyle={{
+            textAlign:"center", 
+            color:"black", 
+            fontSize:16,
+            fontWeight:"bold"
+            }}
+        />
+        
         {/* <Text>vamos por el  {WalkIterator} </Text> */}
         {/* <Text>La cantidad de elementos son {MetaValues.length} </Text> */}
-        <Button style={{marginTop:30}} title='Siguiente' onPress={() => Siguiente(MetaValues.length)}/>
-        <Button  style={{marginTop:30}} title='Anterior' onPress={() => Anterior()}/>
+        {/* <Button style={{marginTop:30}} title='Siguiente' onPress={() => Siguiente(MetaValues.length)}/>
+        <Button  style={{marginTop:30}} title='Anterior' onPress={() => Anterior()}/> */}
         <TouchableNativeFeedback>
         <Text style={{textDecorationLine:"underline", marginTop:30}} onPress={() => Siguiente(MetaValues.length)}>Saltar</Text>
 
