@@ -1,0 +1,44 @@
+[
+    {
+        "Id":0,
+        "Title":"Bienvenido a las Obras Colaborativas GyT",
+        "SubTitle":"Gracias a la colaboración de algunos artistas guatemaltecos, se han instalado obras interactivas en Realidad Aumentada en todo Guatemala. ",
+        "MetaTitle":"Welcome",
+        "Image":"Obras_Colaborativas.png"
+    },
+    {
+        "Id":1,
+        "Title":"Arte Colaborativo, donde tú eres parte de la obra",
+        "SubTitle":"Tendrás la capacidad de intervenir de la forma que tu quieras la escultura en Realidad Aumentada para así dejar tu marca. ",
+        "MetaTitle":"Art",
+        "Image":"ArteColab.png"
+    },
+    {
+        "Id":2,
+        "Title":"Encuentra los Puntos GyT",
+        "SubTitle":"Repartidos en varias localidades de centros comerciales populares encontrarás Posters en donde se encuentra la obra oculta al ojo. ",
+        "MetaTitle":"Puntos",
+        "Image":"Puntos.png"
+    },
+    {
+        "Id":3,
+        "Title":"Adentrate al mundo de la Realidad Aumentada",
+        "SubTitle":"Al activar tu cámara y detectar el Punto GyT, la escultura en 3D se materializará frente a tus propios ojos (a travez de tu teléfono).",
+        "MetaTitle":"AR World",
+        "Image":"AR.png"
+    },
+    {
+        "Id":4,
+        "Title":"Intervén una obra de arte a tu gusto",
+        "SubTitle":"Tienes libertad completa por sobre cómo te gustaría interactuar con la obra.\n¡Solo selecciona, apunta y pega!",
+        "MetaTitle":"Tu Gusto",
+        "Image":"Arte.png"
+    },
+    {
+        "Id":5,
+        "Title":"Deja tu marca en la Comunidad GyT",
+        "SubTitle":"¡Listo! Ahora eres parte de una obra de arte urbana de realidad virtual.\n¡Sientete orgulloso de haber dejado tu marca!",
+        "MetaTitle":"tu Marca",
+        "Image":"Marca.png"
+    }
+]
