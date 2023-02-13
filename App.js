@@ -7,28 +7,38 @@ import Constans from './src/Helpers/Constans';
 import Naigation from './Navigation';
 import { useState } from 'react';
 import LoginScreen from './src/Pages/LoginScreen';
+import Walkthrough from './src/Pages/WalkthroughPage/WalkthroughScreen';
 
 export default function App() {
   const [logged, setlogged] = useState(false)
+  const [walkthrough, setalkthrough] = useState(false)
   // const [fontsLoaded] = useFonts({
   //   regular_coco: require("./assets/Fonts/cocosharp/Coco-Sharp-Heavy-Italic-trial.ttf"),
   //   heavy_coco: require("./assets/Fonts/cocosharp/Coco-Sharp-Heavy-trial.ttf"),
   // })
   return (
   <>
-   { logged
-      ? 
-      <Naigation loginHandler={setlogged}/>
-      :
-      <LoginScreen loginHandler={setlogged} />
-      
-      }
-  
-  
+  <AppInt/>
   </>
    
   );
-
+  function AppInt() {
+    if (logged) {
+      //ya esta logeado
+      if (!walkthrough) {
+        // primera vez que inicia sesion o quiere ver el tuto
+        return <Walkthrough/>
+      } else {
+        //ya ha ingfresado
+        return<Naigation loginHandler={setlogged}/>
+        
+      }
+    } else {
+      //iniciando sesion
+      return <LoginScreen loginHandler={setlogged} />
+      
+    }
+  }
 }
 
 
