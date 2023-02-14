@@ -7,14 +7,13 @@ import { useState } from 'react';
 import MetaValues from "./WalkMetaValues.json"
 import {Slider} from '@miblanchard/react-native-slider';
 import TitleButton from '../../Components/TitleButton';
-function Walkthrough({params}) {
+function Walkthrough({loginHandler}) {
     
     const [WalkIterator, setWalkIterator] = useState(0)
     const [WalkMetaValues, setWalkMetaValues] = useState(MetaValues)
     const images = [
         <Image style={styles.imageDisplay} source={require(`../../../assets/Walkthrough/Obras_Colaborativas.png`)}/>,
-         <Image style={styles.imageDisplay} source={require(`../../../assets/Walkthrough/ArteColab.png`)}/>,
-
+        <Image style={styles.imageDisplay} source={require(`../../../assets/Walkthrough/ArteColab.png`)}/>,
         <Image style={styles.imageDisplay} source={require(`../../../assets/Walkthrough/Puntos.png`)}/>,
         <Image style={styles.imageDisplay} source={require(`../../../assets/Walkthrough/AR.png`)}/>,
         <Image style={styles.imageDisplay} source={require(`../../../assets/Walkthrough/Arte.png`)}/>,
@@ -22,6 +21,7 @@ function Walkthrough({params}) {
     ]
     function Siguiente(max) {
         if (WalkIterator === max-1 ) {
+            loginHandler(true)
             return WalkIterator
             
         }else {
@@ -50,22 +50,26 @@ function Walkthrough({params}) {
     }
     return(<>
     <SafeAreaView style={ styles.SafeAreaContainer }>
+        <ImageDisplayer/>
+        <WalkText/>
+        <WalkButtons/>
+        <TouchableNativeFeedback>
+        <Text style={{textDecorationLine:"underline", marginTop:30}} onPress={() => Siguiente(MetaValues.length)}>Saltar</Text>
+        </TouchableNativeFeedback>
+    </SafeAreaView>
+    <StatusBar style="auto" />
+    </>
+    )
+    function ImageDisplayer(){
+        return(<>
+            <View style={styles.imageContainer}>
+                <ImageSelector i ={WalkIterator}/>
+            </View>
+        </>)
+    }
 
-        <View style={styles.imageContainer}>
-        <ImageSelector i ={WalkIterator}/>
-
-        </View>
-        <Image />
-        <TextTitle 
-        paddingTop={24} paddingBottom={4}
-        width={"90%"}
-        values={WalkMetaValues[WalkIterator].Title} height={88} />
-        <SubTitle 
-        paddingTop={24} paddingBottom={4}
-        width={"90%"}
-        values={WalkMetaValues[WalkIterator].SubTitle} height={95}/>
-        <SliderSteps bullets = {MetaValues.length} active={WalkIterator}/>
-        
+    function WalkButtons(){
+        return (<>
         <TitleButton
         handle= {()  => Siguiente(MetaValues.length)}
         value={"Siguiente"}
@@ -84,8 +88,6 @@ function Walkthrough({params}) {
             color:"white", 
             fontSize:16
             }}/>
-
-
         <TitleButton
         handle= {()  => Anterior()}
         value={"Saltar"}
@@ -105,27 +107,22 @@ function Walkthrough({params}) {
             }}
         />
         
-        {/* <Text>vamos por el  {WalkIterator} </Text> */}
-        {/* <Text>La cantidad de elementos son {MetaValues.length} </Text> */}
-        {/* <Button style={{marginTop:30}} title='Siguiente' onPress={() => Siguiente(MetaValues.length)}/>
-        <Button  style={{marginTop:30}} title='Anterior' onPress={() => Anterior()}/> */}
-        <TouchableNativeFeedback>
-        <Text style={{textDecorationLine:"underline", marginTop:30}} onPress={() => Siguiente(MetaValues.length)}>Saltar</Text>
-
-        </TouchableNativeFeedback>
-        {/* <View style={styles.container}>
-                <Slider
-                    disabled= {true}
-                    value={WalkIterator}
-                    onValueChange={value => setWalkIterator(value)}
-                    maximumValue={MetaValues.length -1}
-                />
-                <Text>Value: {WalkIterator}</Text>
-        </View> */}
-    </SafeAreaView>
-    <StatusBar style="auto" />
-    </>
-    )
+        </>)
+    }
+    function WalkText(){
+        return (<>
+        <TextTitle 
+        paddingTop={24} paddingBottom={4}
+        width={"90%"}
+        values={WalkMetaValues[WalkIterator].Title} height={88} />
+        <SubTitle 
+        paddingTop={24} paddingBottom={4}
+        width={"90%"}
+        values={WalkMetaValues[WalkIterator].SubTitle} height={95}/>
+        <SliderSteps bullets = {MetaValues.length} active={WalkIterator}/>
+        
+        </>)
+    }
 }
 function SliderSteps({bullets, active}) {
     

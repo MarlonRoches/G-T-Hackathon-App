@@ -49,11 +49,11 @@ import {
     function AuthMethods(){
       return(<>
       <View style={loginSyles.horizontalView}>
-        <Image style={loginSyles.authMethohsIcon} source={require("../../assets/Face_ID_logo.png")}/>
-        <Text>Face ID</Text>
+      <TouchableOpacity><Image style={loginSyles.authMethohsIcon} source={require("../../assets/Face_ID_logo.png")}/>
+        <Text>Face ID</Text></TouchableOpacity>
         <Text>   |   </Text>
-        <Image style={loginSyles.authMethohsIcon} source={require("../../assets/Touch_ID_logo.png")}/>
-        <Text>Touch ID</Text>
+        <TouchableOpacity><Image style={loginSyles.authMethohsIcon} source={require("../../assets/Touch_ID_logo.png")}/>
+        <Text>Touch ID</Text></TouchableOpacity>
       </View>
       </>)
     }

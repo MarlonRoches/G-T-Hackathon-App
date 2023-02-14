@@ -27,7 +27,7 @@ export default function App() {
       //ya esta logeado
       if (!walkthrough) {
         // primera vez que inicia sesion o quiere ver el tuto
-        return <Walkthrough/>
+        return <Walkthrough loginHandler ={setalkthrough}/>
       } else {
         //ya ha ingfresado
         return<Naigation loginHandler={setlogged}/>
