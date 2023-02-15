@@ -1,19 +1,26 @@
-import React from "react";
-import { View,Text } from "react-native";
+import { useState } from "react";
+import { View,Text, SafeAreaView } from "react-native";
 import MainButton from "../Components/MainButton";
-import PuntosGyT from "./PuntosGyT/PuntosGyT";
+import PuntosGyT from "./PuntosGyT/WalkTuto_PuntosGyT";
+import HomeContainer from "./HomeScreen/HomeContainer";
 
 function HomeScreen(params) {
-
+    const [WalkDone, setWalkDone] = useState(false)
     return(<>
-    <View>
-        <PuntosGyT/>
-        <Text>
-        HomeScreen
-        </Text>
-        {/* <MainButton title="log out" handler={()=>params.route.params.loginHandler(false)}/> */}
-    </View>
+    <SafeAreaView>
+         <HomeContainer/>
+    </SafeAreaView>
     </>)
+    
+}
+function HomeSelector({WalkDone, setWalkDone}) {
+    if (WalkDone) {
+        // si ya se ha hecho el tutorial, home
+
+    } else {
+       return  <PuntosGyT setWalkDone={setWalkDone}/>
+        
+    }
     
 }
 export default HomeScreen

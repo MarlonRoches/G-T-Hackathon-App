@@ -9,7 +9,7 @@ function TitleButton({style, textStyle, value, handle}) {
         <TouchableNativeFeedback onPress={() => handle()}>
             
             <View style={styles.screenContainer}>
-            <Text style={styles.textStyle}>{value}</Text>
+              <Text style={styles.textStyle}>{value}</Text>
             </View>
         </TouchableNativeFeedback>
       );

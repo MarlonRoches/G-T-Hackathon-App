@@ -15,8 +15,8 @@ import SubTitle from '../../Components/SubTitle';
 import TextTitle from '../../Components/TextTitle';
 import TitleButton from '../../Components/TitleButton';
 
-function PuntosGyT(){
-    const PuntosGyT= StyleSheet.create({
+function WalkTuto_PuntosGyT({setWalkDone}){
+    const WalkTuto_PuntosGyT= StyleSheet.create({
         SafeArea: {
             width:"100%",
             height:"100%",
@@ -27,23 +27,24 @@ function PuntosGyT(){
         imageContainer:{
             width:"100%",
             height:"70%",
-            backgroundColor:"green",
+            // backgroundColor:"green",
             display:"flex",
             flexDirection:'row',
             justifyContent:"center",
             alignItems:"flex-end"
            },
         imageDisplay:{
-            width:"80%",
-             height:"80%",
-            resizeMode:"contain"
+            width:"75%",
+             height:"75%",
+            resizeMode:"contain",
+            marginBottom:10
         }
     })
 
     return(<>
-    <SafeAreaView  style={PuntosGyT.SafeArea}>
-        <View style={PuntosGyT.imageContainer}>
-            <Image style={PuntosGyT.imageDisplay} source={require("../../../assets/Walkthrough/TodosLosPuntos.png")}/>
+    <SafeAreaView  style={WalkTuto_PuntosGyT.SafeArea}>
+        <View style={WalkTuto_PuntosGyT.imageContainer}>
+            <Image style={WalkTuto_PuntosGyT.imageDisplay} source={require("../../../assets/Walkthrough/TodosLosPuntos.png")}/>
         </View>
 
         <TextTitle 
@@ -81,7 +82,7 @@ function PuntosGyT(){
         />
         {/* <SliderSteps bullets = {MetaValues.length} active={WalkIterator}/> */}
         
-        <TitleButton
+        <TitleButton handle={()=> setWalkDone(true)}
         // handle= {()  => Siguiente(MetaValues.length)}
         value={"Siguiente"}
         style={{
@@ -106,4 +107,4 @@ function PuntosGyT(){
 
 }
 
-export default PuntosGyT
+export default WalkTuto_PuntosGyT

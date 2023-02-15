@@ -1,10 +1,11 @@
 import {
     // Alert, Platform,  TouchableWithoutFeedback,TouchableOpacity, TouchableHighlight, TouchableNativeFeedback, 
-    Button
+    Button, StyleSheet
   } from 'react-native';
 
 
 function MainButton({title, handler}) {
+
     return(<>
             <Button title={title}  onPress={()=>{ 
                 console.log("desde el handler")

@@ -3,12 +3,12 @@ import {
   } from 'react-native';
 import TextTitle from '../../Components/TextTitle';
 import SubTitle from '../../Components/SubTitle';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import MetaValues from "./WalkMetaValues.json"
 import {Slider} from '@miblanchard/react-native-slider';
 import TitleButton from '../../Components/TitleButton';
 function Walkthrough({loginHandler}) {
-    
+ 
     const [WalkIterator, setWalkIterator] = useState(0)
     const [WalkMetaValues, setWalkMetaValues] = useState(MetaValues)
     const images = [
@@ -90,7 +90,7 @@ function Walkthrough({loginHandler}) {
             }}/>
         <TitleButton
         handle= {()  => Anterior()}
-        value={"Saltar"}
+        value={"Anterior"}
         style={{
           justifyContent: "center",
           padding: 16,
