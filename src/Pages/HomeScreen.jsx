@@ -1,24 +1,24 @@
 import { useState } from "react";
 import { View,Text, SafeAreaView } from "react-native";
-import MainButton from "../Components/MainButton";
-import PuntosGyT from "./PuntosGyT/WalkTuto_PuntosGyT";
 import HomeContainer from "./HomeScreen/HomeContainer";
+import ScannContainer from "./HomeScreen/ScannContainer";
 
 function HomeScreen(params) {
-    const [WalkDone, setWalkDone] = useState(false)
+    const [ScannMode, setScannMode] = useState(false)
+
     return(<>
     <SafeAreaView>
-         <HomeContainer/>
+        <HomeSelector ScannMode ={ScannMode} setScannMode ={setScannMode}/>
     </SafeAreaView>
     </>)
     
 }
-function HomeSelector({WalkDone, setWalkDone}) {
-    if (WalkDone) {
+function HomeSelector({ScannMode, setScannMode}) {
+    if (ScannMode) {
         // si ya se ha hecho el tutorial, home
-
+        return  <ScannContainer setScannMode={setScannMode}/>
     } else {
-       return  <PuntosGyT setWalkDone={setWalkDone}/>
+        return <HomeContainer setScannMode={setScannMode}/>
         
     }
     

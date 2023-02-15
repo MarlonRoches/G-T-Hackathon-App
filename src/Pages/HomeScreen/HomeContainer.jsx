@@ -14,7 +14,7 @@ import PageSubTitle from '../../Components/PageSubTitle';
 import CardBeneficio from '../../Components/CardBeneficio';
 import TitleButton from '../../Components/TitleButton';
 
-const HomeContainer = () => {
+const HomeContainer = ({setScannMode}) => {
   return (
     <>
       <ScrollView style={styles.scrollView} contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}>
@@ -25,7 +25,7 @@ const HomeContainer = () => {
                 <TitleButton 
                 style={{backgroundColor:"white", width:"99.5%", height:"95%",display:"flex",flexDirection:"column", justifyContent:"center",alignItems:"center", borderRadius:10}}
                 textStyle={{color:"#0E4DA4"}}
-                value={"Lanzar AR"} handle={()=> alert("lanzando AR")}/>
+                value={"Lanzar AR"} handle={()=> setScannMode(true)}/>
             </View>
 
 

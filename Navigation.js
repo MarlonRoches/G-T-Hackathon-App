@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import Constantes from "./src/Helpers/Constans";
 
 import HomeScreen from "./src/Pages/HomeScreen";
-import SettingScreen from "./src/Pages/SettingsScreen";
+import SettingScreen from "./src/Pages/PuntosScreen";
 import { View, Button } from "react-native";
 
 const Tab = createBottomTabNavigator();  // todas las propiedades de las tab
@@ -28,7 +28,7 @@ function MyTabs({loginHandler} ){
         }}
         options={{
             headerShown:false,
-            tabBarLabel: "Ofertas",
+            tabBarLabel: "Beneficios",
             tabBarIcon:({color, icon}) => {
                 
             },
