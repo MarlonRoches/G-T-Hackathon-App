@@ -21,7 +21,7 @@ const HomeContainer = ({setScannMode}) => {
         <View style={styles.scrollViewContainer}>
             <PageTitle values={"Home"}/>
             <Card/>
-            <View style={{width:"87%", height:"1%" , backgroundColor:"#0E4DA4",display:"flex",flexDirection:"column", justifyContent:"center",alignItems:"center", borderRadius:12, marginTop:30, marginBottom:5}}> 
+            <View style={{width:"87%", height:35 , backgroundColor:"#0E4DA4",display:"flex",flexDirection:"column", justifyContent:"center",alignItems:"center", borderRadius:12, marginTop:30, marginBottom:5}}> 
                 <TitleButton 
                 style={{backgroundColor:"white", width:"99.5%", height:"95%",display:"flex",flexDirection:"column", justifyContent:"center",alignItems:"center", borderRadius:10}}
                 textStyle={{color:"#0E4DA4"}}
@@ -30,19 +30,6 @@ const HomeContainer = ({setScannMode}) => {
 
 
             <PageSubTitle values={"Mis Beneficios "}/>
-            <CardBeneficio/>
-            <CardBeneficio/>
-            <CardBeneficio/>
-            <CardBeneficio/>
-            <CardBeneficio/>
-            <CardBeneficio/>
-            <CardBeneficio/>
-            <CardBeneficio/>
-            <CardBeneficio/>
-            <CardBeneficio/>
-            <CardBeneficio/>
-            <CardBeneficio/>
-            <CardBeneficio/>
             <CardBeneficio/>
             <CardBeneficio/>
             <CardBeneficio/>

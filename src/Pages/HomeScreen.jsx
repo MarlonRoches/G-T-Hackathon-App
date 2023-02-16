@@ -5,6 +5,7 @@ import ScannContainer from "./HomeScreen/ScannContainer";
 
 function HomeScreen(params) {
     const [ScannMode, setScannMode] = useState(false)
+    const [ScannedDone, setScannedDone] = useState(false)
 
     return(<>
     <SafeAreaView>
@@ -16,7 +17,11 @@ function HomeScreen(params) {
 function HomeSelector({ScannMode, setScannMode}) {
     if (ScannMode) {
         // si ya se ha hecho el tutorial, home
+        if (ScannedDone) {
+            return 
+        } else {
         return  <ScannContainer setScannMode={setScannMode}/>
+        }
     } else {
         return <HomeContainer setScannMode={setScannMode}/>
         

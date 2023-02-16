@@ -13,6 +13,8 @@ import PageSubTitle from '../Components/PageSubTitle';
 import CardBeneficio from '../Components/CardBeneficio';
 import TitleButton from '../Components/TitleButton';
 import WalkTuto_PuntosGyT from './PuntosGyT/WalkTuto_PuntosGyT';
+import MapModule from './PuntosGyT/MapModule';
+// import MapScreeen from './PuntosGyT/MapScreen';
 
 const PuntosScreen = () => {
     const [WalkDone, setWalkDone] = useState(false)
@@ -28,7 +30,8 @@ const PuntosScreen = () => {
 function PuntosSelector({WalkDone, setWalkDone}) {
     if (WalkDone) {
         // si ya se ha hecho el tutorial, home
-        return <Text>Busqueda en el mapa</Text>
+        // return <Text>Busqueda en el mapa</Text>
+        return <MapModule setWalkDone={setWalkDone}/>
     } else {
        return  <WalkTuto_PuntosGyT setWalkDone={setWalkDone}/>
         
