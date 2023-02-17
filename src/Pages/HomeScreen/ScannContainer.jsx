@@ -9,7 +9,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-const ScannContainer = ({setScannedDone}) => {
+const ScannContainer = ({setScannedDone, setScannMode}) => {
   return (
     <SafeAreaView >
        <>

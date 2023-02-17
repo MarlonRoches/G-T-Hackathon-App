@@ -5,23 +5,23 @@ import PageSubTitle from "../../Components/PageSubTitle";
 import TextTitle from "../../Components/TextTitle";
 import TitleButton from "../../Components/TitleButton";
 
-function ScannDoneScreen({goBack}) {
+function ScannDoneScreen({goBack, backToHome}) {
     return(<>
-        <SuccesContainer goBack={goBack} />
+        <SuccesContainer goBack={goBack} backToHome={backToHome}/>
       <StatusBar style="auto" />
         
     </>)
 }
-function SuccesContainer({goBack}) {
+function SuccesContainer({goBack, backToHome}) {
     return (<SafeAreaView style={Styles.SuccesContainer}>
 
-        <CancelBarr goBack={goBack}/>
+        <CancelBarr backToHome={backToHome}/>
         <CuponImage/>
         <TextTitle  values={"¡Felicidades!"}/>
         <PageSubTitle values={"Toma una Captura de Pantalla al código QR y canjéalo en el establecimiento. "}/>
         
-        <TitleButton style={Styles.mainButton} textStyle={Styles.mainButtonText} value={"Seguir Interactuando con ARte"}/> 
-        <TitleButton style={Styles.secondButton} textStyle={Styles.secondButtonText} value={"Compartir en Redes Sociales "}/> 
+        <TitleButton style={Styles.mainButton} textStyle={Styles.mainButtonText} value={"Seguir Interactuando con ARte"} handle={()=>goBack(false)} /> 
+        <TitleButton style={Styles.secondButton} textStyle={Styles.secondButtonText} value={"Compartir en Redes Sociales "} handle={()=>alert("compartieno")}/> 
     </SafeAreaView>)
 }
 function CuponImage(params) {
@@ -32,9 +32,9 @@ function CuponImage(params) {
     
     </>)
 }
-function CancelBarr({goBack}) {
+function CancelBarr({backToHome}) {
     return(<View style={Styles.CancelBarr}>
-            <TouchableOpacity onPress={() =>  goBack(false)}>
+            <TouchableOpacity onPress={() =>  backToHome()}>
                 <Image View style={Styles.exitIcon} source={require("../../../assets/Icons/exitIcon.png")}/>
         </TouchableOpacity>
     </View>)

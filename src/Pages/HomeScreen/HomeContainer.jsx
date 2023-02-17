@@ -20,7 +20,13 @@ const HomeContainer = ({setScannMode}) => {
       <ScrollView style={styles.scrollView} contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}>
         <View style={styles.scrollViewContainer}>
             <PageTitle values={"Home"}/>
-            <Card/>
+            <ScrollView horizontal={true} bounces={true} bouncesZoom={true}  style={{ width:"100%", height:250}}>
+            <Card  title={"Beneficios VISA"} cardType={1}/>
+            <Card title={"Beneficios VISA"}  cardType={2}/>
+            <Card title={"Beneficios G&T"}  />
+
+
+            </ScrollView>
             <View style={{width:"87%", height:35 , backgroundColor:"#0E4DA4",display:"flex",flexDirection:"column", justifyContent:"center",alignItems:"center", borderRadius:12, marginTop:30, marginBottom:5}}> 
                 <TitleButton 
                 style={{backgroundColor:"white", width:"99.5%", height:"95%",display:"flex",flexDirection:"column", justifyContent:"center",alignItems:"center", borderRadius:10}}
@@ -30,10 +36,11 @@ const HomeContainer = ({setScannMode}) => {
 
 
             <PageSubTitle values={"Mis Beneficios "}/>
-            <CardBeneficio/>
-            <CardBeneficio/>
-            <CardBeneficio/>
-            <CardBeneficio/>
+            <CardBeneficio cardType={1}/>
+            <CardBeneficio cardType={2}/>
+            <CardBeneficio cardType={3}/>
+            <CardBeneficio cardType={4}/>
+            <CardBeneficio cardType={5}/>
         </View>
       </ScrollView>
     </>

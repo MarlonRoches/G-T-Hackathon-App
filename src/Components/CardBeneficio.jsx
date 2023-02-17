@@ -1,7 +1,7 @@
 import { Image, StyleSheet, Text,TouchableNativeFeedback,View } from "react-native";
 import TextTitle from "./TextTitle";
 
-function CardBeneficio({CardBeneficioStyle}) {
+function CardBeneficio({CardBeneficioStyle, cardType}) {
     let styles_CardBeneficio = StyleSheet.create({})
     if(CardBeneficioStyle === undefined || CardBeneficioStyle === null){
         //default style
@@ -23,11 +23,38 @@ function CardBeneficio({CardBeneficioStyle}) {
          styles_CardBeneficio = StyleSheet.create(CardBeneficioStyle)
     }
 
+    function imageSelector() {
+        switch (cardType) {
+            case 1:
+                // return  require("../../assets/G&T/Arts/VisaCardcrop.png")
+                return  require("../../assets/PlaceHolders/confetti_ball.png")
+                
+            case 2:
+                // return  require("../../assets/G&T/Arts/MasterCardcrop.png")
+                return  require("../../assets/PlaceHolders/nail_care.png")
+            case 3:
+                // return  require("../../assets/G&T/Arts/MasterCardcrop.png")
+                return  require("../../assets/PlaceHolders/blue_car.png")
+            case 4:
+                // return  require("../../assets/G&T/Arts/MasterCardcrop.png")
+                return  require("../../assets/PlaceHolders/beers.png")
+            case 5:
+                // return  require("../../assets/G&T/Arts/MasterCardcrop.png")
+                return  require("../../assets/PlaceHolders/circus_tent.png")
+            case 6:
+                // return  require("../../assets/G&T/Arts/MasterCardcrop.png")
+                return  require("../../assets/PlaceHolders/roller_coaster.png")
+                
+
+            default:
+                return  require("../../assets/PlaceHolders/placeholder3c.jpg")
+        }
+    }
 
     return (<TouchableNativeFeedback>
         <View style={styles_CardBeneficio.CardBeneficioContainer}>
             <View style={styles_CardBeneficio.imageContainer}>
-                <Image style={{width:"80%", height :"85%",resizeMode:"cover", backgroundColor:"blue", borderRadius:10 }} source={require("../../assets/PlaceHolders/placeholder3.png",)}/>
+                <Image style={{width:"50%", height :"30%",resizeMode:"contain", borderRadius:10 }} source={imageSelector()}/>
             </View>
             {/* <Image style={{width:"40%", height :"100%",resizeMode:"cover", backgroundColor:"blue" }} source={require("../../assets/PlaceHolders/Placeholder1.jpg")}/> */}
             <CardBeneficioFooter/>

@@ -1,14 +1,15 @@
 import { Image, StyleSheet, Text,TouchableNativeFeedback,View } from "react-native";
 import TextTitle from "./TextTitle";
 
-function Card({cardStyle}) {
+function Card({cardStyle, cardType, title, numDisp }) {
     let styles_Card = StyleSheet.create({})
     if(cardStyle === undefined || cardStyle === null){
         //default style
          styles_Card = StyleSheet.create({
             CardContainer:{
                 height:240,
-                width:"87%",
+                width:350,
+                marginEnd:10,
                 backgroundColor:"green",
                 display:"flex",
                 flexDirection:"column",
@@ -29,16 +30,30 @@ function Card({cardStyle}) {
          styles_Card = StyleSheet.create(cardStyle)
     }
 
+    function imageSelector() {
+        switch (cardType) {
+            case 1:
+                return  require("../../assets/G&T/Arts/VisaCardcrop.png")
+                
+                break;
+            case 2:
+                return  require("../../assets/G&T/Arts/MasterCardcrop.png")
+                
+                break;
+            default:
+                return  require("../../assets/G&T/Logo.jpg")
+        }
+    }
 
     return (<TouchableNativeFeedback>
         <View style={styles_Card.CardContainer}>
-            <Image style={{width:"100%", height :"70%",resizeMode:"cover", backgroundColor:"blue" }} source={require("../../assets/PlaceHolders/Placeholder1.jpg")}/>
-            <CardFooter/>
+            <Image style={{width:"100%", height :"70%",resizeMode:"contain", backgroundColor:"white" }} source={imageSelector()}/>
+            <CardFooter title={title}/>
         </View>
     </TouchableNativeFeedback>)
 }
 
-function CardFooter({cardStyle}){
+function CardFooter({cardStyle, title}){
 
     let styles_CardFooter = StyleSheet.create({})
     if(cardStyle === undefined || cardStyle === null){
@@ -55,7 +70,7 @@ function CardFooter({cardStyle}){
          styles_CardFooter = StyleSheet.create(cardStyle)
     }
 return (<View style={styles_CardFooter.Footer}>
-    <Text style={{fontWeight:"bold", fontSize:20, paddingLeft:"5%", paddingTop:"4%"}}>Mis Stickers</Text>
+    <Text style={{fontWeight:"bold", fontSize:20, paddingLeft:"5%", paddingTop:"4%"}}>{title}</Text>
     <Text  style={{fontWeight:"normal", fontSize:14,paddingLeft:"5%", color:"#818A99"}} >4 Disponibles</Text>
 </View>)
 }

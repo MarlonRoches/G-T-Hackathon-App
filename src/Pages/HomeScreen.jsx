@@ -16,13 +16,17 @@ function HomeScreen(params) {
     
 }
 function HomeSelector({ScannMode, setScannMode, ScannedDone, setScannedDone}) {
+    function backToHome(){
+        setScannMode(false)
+        setScannedDone(false)
+    }
     if (ScannMode) {
         // si ya se ha hecho el tutorial, home
         if (ScannedDone) {
             // ya se ha 
-            return <ScannDoneScreen goBack={setScannedDone}/>
+            return <ScannDoneScreen goBack={setScannedDone} backToHome ={backToHome}/>
         } else {
-        return  <ScannContainer setScannedDone={setScannedDone}/>
+        return  <ScannContainer  setScannMode ={setScannMode} setScannedDone={setScannedDone}/>
         }
     } else {
         return <HomeContainer setScannMode={setScannMode}/>
