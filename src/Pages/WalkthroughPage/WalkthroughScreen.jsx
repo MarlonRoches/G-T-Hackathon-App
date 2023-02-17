@@ -79,7 +79,7 @@ function Walkthrough({loginHandler}) {
           backgroundColor:"black",
           color:"white",
           width:"80%",
-          height:56,
+          height:56, 
           borderRadius: 15,
 
         }} 
