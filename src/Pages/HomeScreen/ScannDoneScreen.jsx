@@ -5,17 +5,17 @@ import PageSubTitle from "../../Components/PageSubTitle";
 import TextTitle from "../../Components/TextTitle";
 import TitleButton from "../../Components/TitleButton";
 
-function ScannDoneScreen(params) {
+function ScannDoneScreen({goBack}) {
     return(<>
-        <SuccesContainer />
+        <SuccesContainer goBack={goBack} />
       <StatusBar style="auto" />
         
     </>)
 }
-function SuccesContainer(params) {
+function SuccesContainer({goBack}) {
     return (<SafeAreaView style={Styles.SuccesContainer}>
 
-        <CancelBarr/>
+        <CancelBarr goBack={goBack}/>
         <CuponImage/>
         <TextTitle  values={"¡Felicidades!"}/>
         <PageSubTitle values={"Toma una Captura de Pantalla al código QR y canjéalo en el establecimiento. "}/>
@@ -32,9 +32,9 @@ function CuponImage(params) {
     
     </>)
 }
-function CancelBarr(params) {
+function CancelBarr({goBack}) {
     return(<View style={Styles.CancelBarr}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() =>  goBack(false)}>
                 <Image View style={Styles.exitIcon} source={require("../../../assets/Icons/exitIcon.png")}/>
         </TouchableOpacity>
     </View>)

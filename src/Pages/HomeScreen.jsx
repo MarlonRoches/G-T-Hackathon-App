@@ -20,7 +20,7 @@ function HomeSelector({ScannMode, setScannMode, ScannedDone, setScannedDone}) {
         // si ya se ha hecho el tutorial, home
         if (ScannedDone) {
             // ya se ha 
-            return <ScannDoneScreen />
+            return <ScannDoneScreen goBack={setScannedDone}/>
         } else {
         return  <ScannContainer setScannedDone={setScannedDone}/>
         }
