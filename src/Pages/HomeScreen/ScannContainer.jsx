@@ -9,7 +9,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-const ScannContainer = ({setScannMode}) => {
+const ScannContainer = ({setScannedDone}) => {
   return (
     <SafeAreaView >
        <>
@@ -27,8 +27,8 @@ const ScannContainer = ({setScannMode}) => {
                     <Image style={{width:37, height:37,resizeMode:'contain' }} source={require("../../../assets/Icons/videoIcon.png")}/>
                 </TouchableOpacity>
 
-                <TouchableOpacity>
-                    <Image style={{width:121, height:121,resizeMode:'contain' }} source={require("../../../assets/Icons/photoIcon.png")}/>
+                <TouchableOpacity onPress={()=> setScannedDone(true)}>
+                    <Image style={{width:121, height:121,resizeMode:'contain' }} source={require("../../../assets/Icons/photoIcon.png")} />
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={()=> setScannMode(false)}>

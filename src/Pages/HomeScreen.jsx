@@ -2,6 +2,7 @@ import { useState } from "react";
 import { View,Text, SafeAreaView } from "react-native";
 import HomeContainer from "./HomeScreen/HomeContainer";
 import ScannContainer from "./HomeScreen/ScannContainer";
+import ScannDoneScreen from "./HomeScreen/ScannDoneScreen";
 
 function HomeScreen(params) {
     const [ScannMode, setScannMode] = useState(false)
@@ -9,18 +10,19 @@ function HomeScreen(params) {
 
     return(<>
     <SafeAreaView>
-        <HomeSelector ScannMode ={ScannMode} setScannMode ={setScannMode}/>
+        <HomeSelector ScannMode ={ScannMode} setScannMode ={setScannMode} ScannedDone={ScannedDone} setScannedDone={setScannedDone}/>
     </SafeAreaView>
     </>)
     
 }
-function HomeSelector({ScannMode, setScannMode}) {
+function HomeSelector({ScannMode, setScannMode, ScannedDone, setScannedDone}) {
     if (ScannMode) {
         // si ya se ha hecho el tutorial, home
         if (ScannedDone) {
-            return 
+            // ya se ha 
+            return <ScannDoneScreen />
         } else {
-        return  <ScannContainer setScannMode={setScannMode}/>
+        return  <ScannContainer setScannedDone={setScannedDone}/>
         }
     } else {
         return <HomeContainer setScannMode={setScannMode}/>

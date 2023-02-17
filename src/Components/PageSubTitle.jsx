@@ -14,7 +14,7 @@ function PageSubTitle({values, width, height,paddingTop, paddingBottom, textStyl
                 marginTop:20,
                 marginBottom:10,
                 paddingBottom:paddingBottom,
-                height:35,
+                height:"auto",
                 width:"100%",
                 // backgroundColor:"red",
                 paddingLeft:"5%"
